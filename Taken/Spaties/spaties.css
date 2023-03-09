@@ -1,0 +1,16 @@
+
+.wrapper > div{
+    margin-top: 1em;
+    display: flex;
+    gap: 0.5em;
+    width: 80%;
+    margin: 0 auto;
+}
+.wrapper > div > *{
+    flex: 50%;
+    margin-top: 0.5em;
+}
+span#spanAantalSpaties{
+    text-align: right;
+    border: 1px solid black;
+}
