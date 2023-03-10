@@ -1,9 +1,12 @@
 "use strict";
 const afbeelding = document.getElementById("afbeelding");
-const standbeeldenLijst = document.getElementById("standbeelden");
 
-for(const link of standbeeldenLijst.getElementsByTagName("a")){
-    link.onclick = function(){afbeelding.src = `./img/${this.id}.jpg`};
+
+for(const link of document.querySelectorAll("#standbeelden a")){
+    link.onclick = function(){
+        afbeelding.src = `./img/${this.dataset.img}.jpg`
+        afbeelding.title= this.dataset.title;
+    };
 }
 
 document.getElementById("isHetWeekend").onclick = isHetWeekend;
