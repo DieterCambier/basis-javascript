@@ -1,5 +1,11 @@
 const ingevoerdeTekst = document.getElementById("ingevoerdeTekst");
 
+document.getElementById("btnToonSpaties").disabled = true;
+
+ingevoerdeTekst.oninput = function() {
+    document.getElementById("btnToonSpaties").disabled = this.value == '' ? true : false;
+    
+}
 document.getElementById("btnToonSpaties").onclick = function () {
     console.clear();
     let aantalSpaties = 0;
