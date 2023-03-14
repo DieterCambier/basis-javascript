@@ -21,3 +21,6 @@ function isHetWeekend() {
     }
 }
 
+for(const child of document.querySelector("#standbeelden").children){
+    console.log(child);
+}
