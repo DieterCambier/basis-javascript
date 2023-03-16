@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+}
+body, ul,section,h1,h2{
+    margin: 0;
+    padding: 0;
+}
+section{
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 1024px;
+    margin: 1em auto;
+    border: 0.2em solid black;
+}
+img{
+    height: 5em;
+    box-shadow: 4px 4px 6px black;
+    border-radius: 100%;
+}
+a img:hover{
+    box-shadow: 2px 2px 3px black;
+}
+a img:active{
+    box-shadow: none;
+}
+section > *{
+    margin: 0.5em;
+}
+ul{
+    display: flex;
+    list-style-type: none;
+    gap: 1em;
+}
+/*Kleur classes*/
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.grey{
+    background-color: gray;
+}
