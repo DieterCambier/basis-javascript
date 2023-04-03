@@ -1,8 +1,7 @@
 "use strict";
 const button = document.querySelector("button");
 
-
-button.onclick = function(){
+button.onclick = function () {
     const lijst = document.querySelector("ul");
     const ingevoerdeNaam = document.getElementById('ingevoerdeNaam');
     const foutmelding = document.getElementById("foutmelding");
@@ -13,7 +12,7 @@ button.onclick = function(){
         ingevoerdeNaam.focus();
     }
     //Als de ingevoerdeNaam niet leeg is
-    else{
+    else {
         //Maak een controlevariabele en zet deze op false
         let komtVoor = false;
         //Verberg de foutmelding
@@ -34,7 +33,7 @@ button.onclick = function(){
             //Maak een nieuw li element
             const lijstItem = document.createElement("li");
             //Voeg de ingevoerdeNaam toe aan het Li element met als aantal 1 (laatste span)
-            lijstItem.innerHTML =`<span>${ingevoerdeNaam.value}</span>: <span>1</span>`;
+            lijstItem.innerHTML = `<span>${ingevoerdeNaam.value}</span>: <span>1</span>`;
             //Voeg het nieuwe li element toe aan de lijst
             lijst.appendChild(lijstItem);
         }
