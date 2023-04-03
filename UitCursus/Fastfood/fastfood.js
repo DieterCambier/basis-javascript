@@ -1,38 +1,32 @@
 "use strict";
+const byTagNameOption = document.getElementsByTagName("option");
+const byQuerySelectorAll = document.querySelectorAll("option");
 
-const aantalHamburgers = document.getElementById("hamburgers").length;
-const aantalFrieten = document.getElementsByName("friet").length;
-const aantalDesserts = document.getElementsByName("dessert").length;
-const frieten = document.getElementsByName("friet");
-const desserts = document.getElementsByName("dessert");
+const aantalHamburgers = document.getElementById("aantalHamburgers");
+const aantalFrieten = document.getElementById("aantalFrieten");
+const aantalDesserts = document.getElementById("aantalDesserts");
 
-document.getElementById("aantalHamburgers").innerText = aantalHamburgers;
-document.getElementById("aantalFrieten").innerText = aantalFrieten;
-document.getElementById("aantalDesserts").innerText = aantalDesserts;
+aantalHamburgers.innerText = document.getElementById("hamburgers").length;
+aantalFrieten.innerText = document.getElementsByName("friet").length;
+aantalDesserts.innerText = document.getElementsByName("dessert").length
 
 document.getElementById("hamburgers").onchange = function(){
-    const gekozenNummer = this.value;
-    const gekozenNaam = this.options[this.selectedIndex].innerText;
-    document.getElementById("keuzeBurger").innerText = `${gekozenNummer} - ${gekozenNaam}`
-    
+    document.getElementById("keuzeBurger").innerText = `${this.value} - ${this.options[this.selectedIndex].innerText}`;
 }
 
-
-for (const friet of frieten) {
-    friet.onchange= function(){
-        const gekozenNummer = this.value;
-        const gekozenNaam = this.parentElement.innerText;
-        document.getElementById("keuzeFriet").innerText = `${gekozenNummer} - ${gekozenNaam}`;
-    };
+for (const gekozenFriet of document.getElementsByName("friet")) {
+    gekozenFriet.onchange = function(){
+        document.getElementById("keuzeFriet").innerText = `${gekozenFriet.value} - ${gekozenFriet.parentElement.innerText} friet`;
+    }
 }
-for (const dessert of desserts) {
-    dessert.onchange = function(){
-        let keuzes = '';
-        for (const geselecteerdDessert of desserts) {
-            if (geselecteerdDessert.checked) {
-                keuzes += `${geselecteerdDessert.value} - ${geselecteerdDessert.parentElement.innerText},`
+for (const gekozenDessert of document.getElementsByName("dessert")) {
+    gekozenDessert.onchange = function(){
+        let dessertKeuzes = ""
+        for (const keuzeMogelijkheid of document.getElementsByName("dessert")) {
+            if (keuzeMogelijkheid.checked == true) {
+                dessertKeuzes += `${keuzeMogelijkheid.value} - ${keuzeMogelijkheid.parentElement.innerText}<br> ` 
             }
         }
-        document.getElementById("keuzeDessert").innerText= keuzes.slice(0,-1);
+    document.getElementById("keuzeDessert").innerHTML = dessertKeuzes;
     }
 }
