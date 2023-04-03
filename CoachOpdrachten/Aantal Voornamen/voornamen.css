@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+section#invoer{
+    display: flex;
+    gap:0.5em;
+    align-items: center;
+}
+section#invoer > *{
+    height: 2em;
+}   
+#foutmelding{
+    display: flex;
+    color: red;
+    border: 1px solid red;
+    align-items: center;
+    padding: 0 0.25em;
+    visibility:hidden;
+}
