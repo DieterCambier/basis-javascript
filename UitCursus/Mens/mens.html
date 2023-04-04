@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./mens.js" defer></script>
+    <link rel="stylesheet" href="./default.css">
+    <title>Mens</title>
+
+</head>
+<body>
+    <label>Voornaam:
+        <span id="voornaamFout" hidden class="fout">Verplicht in te vullen.</span>
+        <input id="voornaam" autofocus required>
+    </label>
+    <label>Aantal kinderen:
+        <span id="kinderenFout" hidden class="fout">Minstens nul.</span>
+        <input id="kinderen" required type="number" min="0"></label>
+    <label>Geslacht:
+        <span id="geslachtFout" hidden class="fout">Verplicht te kiezen.</span>
+        <select id="geslacht" required>
+            <option value="">(Maak een keuze)</option>
+            <option value="M">Man</option>
+            <option value="V">Vrouw</option>
+            <option value="X">X</option>
+        </select>
+    </label>
+    <button id="toevoegen">Toevoegen</button>
+    <span id="toegevoegd" hidden class="feedback">Toegevoegd.</span>
+</body>
+</html>

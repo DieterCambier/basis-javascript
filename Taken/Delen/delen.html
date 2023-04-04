@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <script src="./delen.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./delen.css">
+    <title>Delen</title>
+</head>
+<body>
+    <main>
+        <label><div>Getal1:</div><input id="getal1" type="number" min="0" required autofocus><span id="getal1Fout" class="fout" hidden>Getal moet groter of gelijk zijn aan 0</span></label>
+        <label><div>Getal2:</div><input id="getal2" type="number" step="0.1" required><span id="getal2Fout" class="fout" hidden>Getal moet groter zijn dan 0</span></label>
+        <div><button id="delen">Delen</button><span id="resultaat" class="resultaat"></span></div>
+    </main>
+</body>
+</html>
