@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section.speelveld{
+    width: 80vw;
+    height: 6em;
+    margin: 1em auto;
+    padding: 1em;
+}
+ul{
+    display: flex;
+    gap: 0.5em;
+    width: 100%;
+    justify-content: center;
+    padding: 1em;
+    list-style: none;
+}
+.prompt{
+    border: 1px solid black;
+    padding: 1em;
+}

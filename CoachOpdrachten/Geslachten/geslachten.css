@@ -1,0 +1,10 @@
+.error{
+    margin-top: 1rem;
+    padding: 1rem;
+    font-weight: bolder;
+    border: 1px solid red;
+    color: red;
+}
+section{
+    margin: 1rem 0;
+}

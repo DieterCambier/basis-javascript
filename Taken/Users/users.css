@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+section{
+    display: grid;
+    align-items: center;
+    gap:3em;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em;
+}
+ul{
+    display: grid;
+    height: 100%;
+    list-style-type: none;
+}
+#gegevens{
+    justify-content: center;
+}
+img{
+    margin-top: 1em;
+}
