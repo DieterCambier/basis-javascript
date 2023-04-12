@@ -45,7 +45,7 @@ async function initialisatie() {
     //Bij het klikken op de knop
     btnFilter.onclick = function () {
         //en als er een optie werd gekozen in het keuzemenu.
-        if (selAlleOpties.value != '') {
+        if (selAlleOpties.checkValidity()) {
             spanMeldingOpties.hidden = true;
             //Voer de functie uit om de waarden te tonen in de tabel.
             toonArray(arrAllePersonen, selAlleOpties.value);
