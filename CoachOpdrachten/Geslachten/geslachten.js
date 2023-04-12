@@ -22,19 +22,8 @@ async function fetchJson() {
 function toonArray(arrayVanPersonen,geslacht) {
     let teTonenArrayMetPersonen;
     let tabel = document.querySelector("tbody");
-    tabel.innerHTML = `
-    <tr>
-        <th>Voornaam</th>
-        <th>Familienaam</th>
-        <th>Geslacht</th>
-        <th>Foto</th>
-    </tr>
-    `;
-    if (geslacht != 'a') {
-       teTonenArrayMetPersonen = arrayVanPersonen.filter(persoon => persoon.geslacht ==  geslacht);
-    }else{
-        teTonenArrayMetPersonen = arrayVanPersonen;
-    }
+    tabel.innerHTML = ``;
+    teTonenArrayMetPersonen = geslacht !='a'? arrayVanPersonen.filter(persoon => persoon.geslacht ==  geslacht):arrayVanPersonen;
     for (const persoon of teTonenArrayMetPersonen) {
         tabel.appendChild(document.createElement("tr")).innerHTML = `
         <td>${persoon.voornaam}</td>
