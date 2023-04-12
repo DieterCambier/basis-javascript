@@ -1,10 +1,12 @@
 .error{
-    margin-top: 1rem;
-    padding: 1rem;
     font-weight: bolder;
-    border: 1px solid red;
-    color: red;
+    background-color: red;
+    color: white;
+    padding: 0 0.5rem;
 }
 section{
     margin: 1rem 0;
+}
+button{
+    margin: 1rem 0 0 0;
 }

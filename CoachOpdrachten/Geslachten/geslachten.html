@@ -13,17 +13,12 @@
     <section>
         <select name="options" id="options">
             <option value="" selected disabled>- Maak een keuze -</option>
-            <option value="">Mannen</option>
-            <option value="">Vrouwen</option>
-            <option value="">x</option>
-            <option value="">Allen</option>
         </select>
-    </section>
-    <section id="links">
-        <a href="#" data-geslacht ="man">Mannen</a>
-        <a href="#" data-geslacht ="vrouw">Vrouwen</a>
-        <a href="#" data-geslacht ="x">X</a>
-        <a href="#" data-geslacht ="a">Allen</a>
+        <span class="error" id="meldingOpties" hidden>
+        </span>
+        <div>
+            <button id="btnFilter">Filter</button>
+        </div>
     </section>
     <table>
         <thead>
@@ -37,8 +32,9 @@
         <tbody>
         </tbody>
     </table>
-    <div class="error" id="melding" hidden>
+    <div class="error" id="meldingPersonen" hidden>
     </div>
+
     
 </body>
 </html>

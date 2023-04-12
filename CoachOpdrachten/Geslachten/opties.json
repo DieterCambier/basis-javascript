@@ -1,0 +1,18 @@
+[
+    {
+        "tekst":"Mannen",
+        "geslacht" :"man"
+    },
+    {
+        "tekst":"Vrouwen",
+        "geslacht" :"vrouw"
+    },
+    {
+        "tekst":"X",
+        "geslacht" :"x"
+    },
+    {
+        "tekst":"Allen",
+        "geslacht" :"a"
+    }
+]
