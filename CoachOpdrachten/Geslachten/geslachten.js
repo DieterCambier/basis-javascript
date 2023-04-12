@@ -13,7 +13,7 @@ async function initialisatie() {
     if (responseGeslachten.ok) {
         arrAllePersonen = await responseGeslachten.json();
         //Voer de functie uit die alle personen zal tonen in de tabel.
-        toonArray(arrAllePersonen, selAlleOpties.value);
+        toonArray(arrAllePersonen, "a");
         divMeldingPersonen.hidden = true;
         //Als het JSON bestand niet kan worden opgehaald
     } else {
@@ -63,8 +63,8 @@ function toonArray(arrayVanPersonen, geslacht) {
     let tabel = document.querySelector("tbody");
     //maak de tabel eerst leeg
     tabel.innerHTML = ``;
-    //Als het gekozen geslacht niet '' of 'a' is dan filter je de array op het gekozen geslacht.
-    teTonenArrayMetPersonen = geslacht === '' || geslacht === 'a' ? arrayVanPersonen : arrayVanPersonen.filter(persoon => persoon.geslacht == geslacht);
+    //Als het gekozen geslacht niet 'a' is dan filter je de array op het gekozen geslacht.
+    teTonenArrayMetPersonen = geslacht === 'a' ? arrayVanPersonen : arrayVanPersonen.filter(persoon => persoon.geslacht == geslacht);
     //Toon de array.
     for (const persoon of teTonenArrayMetPersonen) {
         tabel.appendChild(document.createElement("tr")).innerHTML = `
