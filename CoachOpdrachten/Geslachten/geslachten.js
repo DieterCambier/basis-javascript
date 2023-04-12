@@ -1,18 +1,44 @@
 "use strict";
+const spanMeldingOpties = document.getElementById("meldingOpties");
+const divMeldingPersonen = document.getElementById("meldingPersonen");
+const btnFilter = document.getElementById("btnFilter");
+const selAlleOpties = document.getElementById("options");
 
 initialisatie();
 async function initialisatie() {
-    const spanMeldingOpties = document.getElementById("meldingOpties");
-    const divMeldingPersonen = document.getElementById("meldingPersonen");
-    const btnFilter = document.getElementById("btnFilter");
-    const selAlleOpties = document.getElementById("options");
     selAlleOpties.firstElementChild.selected = true;
-    //Vul arrAllePersonen met de waarden uit het JSON bestand.
+
+    const arrAllePersonen = await initialiseerPersonen();
+    const arrAlleOpties = await initialiseerOpties();
+    //Als zowel arrAlleOpties als arrAllePersonen konden worden opgehaald, activeer de knop om te filteren.
+    btnFilter.disabled = arrAlleOpties.length === 0 || arrAllePersonen.length === 0 ? true : false;
+    //Bij het klikken op de knop
+    btnFilter.onclick = function () {
+        handleClick(arrAllePersonen);
+    }
+}
+
+function handleClick(arrAllePersonen) {
+  //als er een optie werd gekozen in het keuzemenu.
+  if (selAlleOpties.checkValidity()) {
+      spanMeldingOpties.hidden = true;
+      //Voer de functie uit om de waarden te tonen in de tabel.
+      toonArray(arrAllePersonen, selAlleOpties.value);
+      //Als er geen optie werd gekozen in het keuzemenu.
+  } else {
+      //Toon een foutmelding.
+      spanMeldingOpties.innerText = 'Maak eerst een geldige keuze uit de lijst.';
+      spanMeldingOpties.hidden = false;
+  }
+}
+
+async function initialiseerPersonen() {
     let arrAllePersonen = [];
+    //Vul arrAllePersonen met de waarden uit het JSON bestand.
     const responseGeslachten = await fetch("./geslachten.json");
     if (responseGeslachten.ok) {
-        arrAllePersonen = await responseGeslachten.json();
         //Voer de functie uit die alle personen zal tonen in de tabel.
+        arrAllePersonen = await responseGeslachten.json();
         toonArray(arrAllePersonen, "a");
         divMeldingPersonen.hidden = true;
         //Als het JSON bestand niet kan worden opgehaald
@@ -21,6 +47,10 @@ async function initialisatie() {
         divMeldingPersonen.innerText = 'Lijst van gebruikers kon niet worden opgehaald.';
         divMeldingPersonen.hidden = false;
     }
+    return arrAllePersonen;
+}
+
+async function initialiseerOpties() {
     //Vul array arrAlleOpties met de waarden uit het Json bestand.
     let arrAlleOpties = [];
     const responseOpties = await fetch("./opties.json");
@@ -40,23 +70,9 @@ async function initialisatie() {
         spanMeldingOpties.innerText = 'Lijst met opties kon niet worden opgehaald.';
         spanMeldingOpties.hidden = false;
     }
-    //Als zowel arrAlleOpties als arrAllePersonen konden worden opgehaald, activeer de knop om te filteren.
-    btnFilter.disabled = arrAlleOpties.length === 0 || arrAllePersonen.length === 0 ? true : false;
-    //Bij het klikken op de knop
-    btnFilter.onclick = function () {
-        //en als er een optie werd gekozen in het keuzemenu.
-        if (selAlleOpties.checkValidity()) {
-            spanMeldingOpties.hidden = true;
-            //Voer de functie uit om de waarden te tonen in de tabel.
-            toonArray(arrAllePersonen, selAlleOpties.value);
-            //Als er geen optie werd gekozen in het keuzemenu.
-        } else {
-            //Toon een foutmelding.
-            spanMeldingOpties.innerText = 'Maak eerst een geldige keuze uit de lijst.';
-            spanMeldingOpties.hidden = false;
-        }
-    }
+    return arrAlleOpties;
 }
+
 //De functie om de geselecteerde waarden te tonen in de tabel.
 function toonArray(arrayVanPersonen, geslacht) {
     let teTonenArrayMetPersonen;
