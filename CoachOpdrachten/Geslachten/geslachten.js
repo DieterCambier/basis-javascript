@@ -11,7 +11,7 @@ async function initialisatie() {
     const arrAllePersonen = await initialiseerPersonen();
     const arrAlleOpties = await initialiseerOpties();
     //Als zowel arrAlleOpties als arrAllePersonen konden worden opgehaald, activeer de knop om te filteren.
-    btnFilter.disabled = arrAlleOpties.length === 0 || arrAllePersonen.length === 0 ? true : false;
+    btnFilter.disabled = arrAlleOpties.length === 0 || arrAllePersonen.length === 0;
     //Bij het klikken op de knop
     btnFilter.onclick = function () {
         handleClick(arrAllePersonen);
