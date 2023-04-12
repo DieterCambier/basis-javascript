@@ -13,7 +13,7 @@ async function initialisatie() {
     if (responseGeslachten.ok) {
         arrAllePersonen = await responseGeslachten.json();
         //Voer de functie uit die alle personen zal tonen in de tabel.
-        toonArray(arrAllePersonen, '');
+        toonArray(arrAllePersonen, selAlleOpties.value);
         divMeldingPersonen.hidden = true;
         //Als het JSON bestand niet kan worden opgehaald
     } else {
