@@ -2,6 +2,7 @@
 <html lang="nl">
 
 <head>
+  <script src="./groentenwinkel.js" defer></script>
   <link rel="icon" href="javascript.ico" type="image/x-icon">
   <title>Groentenwinkel</title>
   <link rel="icon" href="groentenwinkel.ico" type="image/x-icon">
@@ -12,14 +13,34 @@
   <img src="banner.jpg" id="banner" alt="banner">
   <h1>Bestelling</h1>
   <label>Groente:
-    <select id="groente">
+    <select id="selGroentenLijst" required>
       <option value="">--- maak uw keuze ---</option>
     </select>
   </label>
   <label>Aantal:
-    <input id="aantal">
+    <input id="inpAantal" type="number" min="1" required>
   </label>
-  <button id="toevoegen">Toevoegen aan mandje</button>
+  <span><button id="btnToevoegen">Toevoegen aan mandje</button></span>
+  <span class="melding" id="melding" hidden>error</span>
+  <table>
+    <thead>
+      <tr>
+        <th>Groente</th>
+        <th>Aantal</th>
+        <th>Prijs</th>
+        <th>Te Betalen</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Totaal</th>
+        <th colspan="3" id="totaalprijs">prijs</th>
+        <th></th>
+      </tr>
+    </tfoot>
+  </table>
 </body>
-
 </html>
